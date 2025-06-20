@@ -1,0 +1,28 @@
+Concept of Recursion
+
+Recursion is a programming concept where a function calls itself to break down a bigger problem into smaller, manageable parts.
+
+Benefits:
+Makes it easier to solve problems that involve repetition or branching, like tree traversal or backtracking.
+Works well for problems that follow a mathematical formula, such as calculating factorial, Fibonacci numbers, or powers.
+Breaks Down Complex Tasks.
+Reduces Code Complexity.
+
+Example:
+FutureValue(n) = FutureValue(n - 1) * (1 + rate)
+
+This recursive definition lets us calculate the value of an investment at year n based on the value at year n-1. It’s a clean and intuitive way to model financial growth over time.
+
+Optimizing the Recursive Solution: Usiing Iterative Approach
+
+Replacing recursion with a loop:
+public static double futureValueIterative(double presentValue, double rate, int years) {
+    double result = presentValue;
+    for (int i = 0; i < years; i++) {
+        result *= (1 + rate);
+    }
+    return result;
+}
+
+Same time Complexity:O(n)
+But avoids recursion stack - faster and safer for large inputs   
