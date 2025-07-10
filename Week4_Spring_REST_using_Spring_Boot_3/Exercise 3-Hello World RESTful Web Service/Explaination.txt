@@ -1,0 +1,87 @@
+ 1. Purpose of the Task
+You created a simple REST API using Spring Boot that:
+
+Listens on port 8083
+
+Handles a GET request at /hello
+
+Returns a plain string response: "Hello World!!"
+
+🔹 2. Key Spring Components Used
+✅ @RestController
+Combines @Controller and @ResponseBody
+
+Used to define RESTful endpoints
+
+Methods return data (like Strings or JSON), not views.
+
+✅ @GetMapping("/hello")
+Maps HTTP GET requests to the sayHello() method.
+
+When /hello is hit, this method is triggered.
+
+✅ Logger (SLF4J)
+Used to log method entry and exit.
+
+java
+Copy
+Edit
+LOGGER.info("Start");
+...
+LOGGER.info("End");
+🔹 3. application.properties
+properties
+Copy
+Edit
+server.port=8083
+Sets the Spring Boot application to run on port 8083 instead of default 8080.
+
+🔹 4. Testing in Browser and Postman
+🌐 Browser:
+URL: http://localhost:8083/hello
+
+Output: "Hello World!!"
+
+📬 Postman:
+Method: GET
+
+URL: http://localhost:8083/hello
+
+Output: "Hello World!!"
+
+🔹 5. Inspecting HTTP Headers
+🔸 In Chrome:
+Open DevTools → Network Tab
+
+Reload the page with /hello
+
+Click on the request → View:
+
+Request Headers (e.g., User-Agent, Accept)
+
+Response Headers (e.g., Content-Type, Date)
+
+🔸 In Postman:
+After sending the request:
+
+Go to the Headers tab
+
+You can see:
+
+Content-Type: text/plain;charset=UTF-8
+
+Date, Transfer-Encoding, etc.
+
+🔹 6. Console Log Verification
+Console output should include:
+
+pgsql
+Copy
+Edit
+INFO  HelloController : Start
+INFO  HelloController : End
+These logs confirm:
+
+The controller method executed successfully
+
+Spring logging is enabled via logging.level.root=DEBUG

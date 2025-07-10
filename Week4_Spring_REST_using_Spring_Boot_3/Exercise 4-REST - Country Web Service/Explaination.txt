@@ -1,0 +1,47 @@
+1. 🔍 What happens in the controller method?
+When a request is made to /country, Spring maps it to the getCountryIndia() method.
+
+Inside this method, we load country.xml using ApplicationContext and retrieve the bean with ID "country".
+
+The bean is returned as a Java object (Country), but Spring automatically converts it to JSON using Jackson.
+
+2. 🔁 How is the bean converted into JSON?
+Spring Boot uses Jackson (included via spring-boot-starter-web) to serialize Java objects into JSON.
+
+Since the Country class has proper getters, it is automatically converted into a JSON format in the HTTP response.
+
+3. 🌐 Network Tab in Chrome DevTools:
+Open Chrome
+
+Visit: http://localhost:8083/country
+
+Open DevTools > Network > Reload
+
+Click on the /country request to inspect headers.
+
+Important Headers:
+
+Request Headers:
+
+Host: localhost:8083
+
+User-Agent: ...
+
+Response Headers:
+
+Content-Type: application/json
+
+Content-Length: ...
+
+4. 🔍 Headers in Postman:
+Send a GET request to http://localhost:8083/country
+
+Go to the Headers tab in the response section.
+
+You’ll see:
+
+Content-Type: application/json
+
+Date: ...
+
+Content-Length: ...
